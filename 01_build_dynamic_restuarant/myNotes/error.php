@@ -12,3 +12,12 @@
  *      - the parse error is prerequisite
  *      - which mean that nothing will appear until solve this problem
  */
+
+
+// warning
+
+/*
+ * warning not like parse error it will show the page and show error
+ * which mean it will not stop code like error
+ *  - will execute whatever behind and after
+ */
