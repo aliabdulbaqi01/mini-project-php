@@ -1,15 +1,34 @@
 <?php
 include_once('help/users.php');
 include_once('database/db.php');
-session_start();
+
+if(isset($_SESSION['email'])){
+    if($_SESSION['role'] === 'admin') {
+        header('Location: pages/dashboard.php');
+    }else {
+        header('Location: pages/user.php');
+    }
+}
 
 if(isset($_POST['email'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
-    if(login($email, $password, $pdo)){
+
+
+    if (login($email, $password, $pdo) && is_admin($email, $password, $pdo)) {
+        $row = login($email, $password, $pdo);
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['name'] = $row['name'];
+        $_SESSION['role'] = $row['role'];
         header('Location: pages/dashboard.php');
-    }else {
-        echo "wrong email or password";
+
+    } elseif(login($email, $password, $pdo)){
+        header('Location: pages/user.php');
+    }
+    else {
+        $_SESSION['status'] = "Wrong Email or Password or Fields are empty";
+        $_SESSION['status_code'] = "error";
     }
 }
 
@@ -81,7 +100,39 @@ if(isset($_POST['email'])){
 <script src="assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- SweetAlert2 -->
+<link rel="stylesheet" href="assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+<!-- Toastr -->
+<link rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
+
 <!-- AdminLTE App -->
 <script src="assets/dist/js/adminlte.min.js"></script>
+<?php
+if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
+
+?>
+    <script>
+        $(function() {
+            var Toast = Swal.mixin({
+                toast: true,
+                position: 'top',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+            $('.swalDefaultSuccess').click(function() {
+                Toast.fire({
+                    icon: '<?= $_SESSION['status_Code']?>',
+                    title: '<?= $_SESSION['status']?>'
+                })
+            });
+    </script>
+
+
+<?php
+unset($_SESSION['status']);
+}
+?>
 </body>
 </html>
