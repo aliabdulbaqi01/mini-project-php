@@ -1,14 +1,1 @@
-[
-  {
-    "id": 1,
-    "title": "product1",
-    "description": "here is my first product",
-    "image": "uploads/product_images/2127022975_2796544_403855-PD499A-808.jpg"
-  },
-  {
-    "id": 2,
-    "title": "product2",
-    "description": "here is my second product",
-    "image": "uploads/product_images/2127022975_2796544_403855-PD499A-808.jpg"
-  }
-]
+[{"id":1,"title":"product1","description":"here is my first product","image":"uploads\/product_images\/2127022975_2796544_403855-PD499A-808.jpg"},{"id":2,"title":"product2","description":"here is my second product","image":"uploads\/product_images\/2127022975_2796544_403855-PD499A-808.jpg"},{"id":3,"title":"product 3","description":"here is product 3","image":"uploads\/product_images","created_at":"2024-09-20 20:38:27","updated_at":null}]
