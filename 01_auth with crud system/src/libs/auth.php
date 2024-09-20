@@ -41,11 +41,38 @@ function register(array $inputs) :array {
 
     if(!$errors) {
         create('users', $data);
-        redirect_to('login.php');
+        redirect_to('login');
     }
 return $errors;
 }
 
 
 
-function login() {}
+function login(array $inputs) :array
+{
+    // validation
+    $validation = [
+        'email' => 'email | min:5',
+        'password' => 'string',
+    ];
+
+    [$inputs , $errors] = filter($inputs, $validation);
+    if(!$errors) {
+        // return user if it exist
+        $user = is_user_exist($inputs['email']);
+        if ($user) {
+
+            // check if the password identical to the stored password
+            if (password_verify($inputs['password'], $user['password'])) {
+                $_SESSION['user'] = $user;
+                redirect_to('index');
+            }
+
+            $errors['password'] = 'Wrong password';
+            return $errors;
+        }
+        $errors['email'] = 'Email is not exist';
+    }
+
+    return $errors;
+}

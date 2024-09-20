@@ -24,7 +24,7 @@ if($method === "POST") {
     }
 
     if(isset($inputs)) {
-        $inputs = $_SESSION['inputs'];
+        $data = $_SESSION['inputs'];
         unset($_SESSION['inputs']);
     }
 }

@@ -1,7 +1,32 @@
 <?php
 require_once __DIR__ . "/../src/bootstrap.php";
 $errors = [];
+$method = strtoupper($_SERVER["REQUEST_METHOD"]);
 
+if($method === "POST") {
+    $inputs = [
+        "email" => $_POST["email"],
+        'password' => $_POST["password"]
+    ];
+
+    $errors = login($inputs);
+
+
+    $_SESSION['errors'] = $errors;
+    $_SESSION['inputs'] = $inputs;
+}
+elseif ($method === "GET")
+{
+    if(isset($_SESSION['errors'])) {
+        $errors = $_SESSION['errors'];
+        unset($_SESSION['errors']);
+    }
+
+    if(isset($_SESSION['errors'])) {
+        $data = $_SESSION['inputs'];
+        unset($_SESSION['inputs']);
+    }
+}
 
 view('header', ['title' => 'Login']);
 ?>
@@ -17,7 +42,7 @@ view('header', ['title' => 'Login']);
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" name="email" class="form-control"
-                                   value="<?= isset($data['email']) ? $data['email'] : '' ?>">
+                                   value="<?=  $data['email'] ?? '' ?>">
                             <p class="error text-danger"><?= @$errors['email'] ?></p>
                         </div>
                         <div class="form-group">
