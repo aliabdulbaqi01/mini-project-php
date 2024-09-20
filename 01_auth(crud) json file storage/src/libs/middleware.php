@@ -16,7 +16,13 @@ function guest()
 
 
 function is_admin() {
-    if (isset($_SESSION['user']) && $_SESSION['user']['role'] !== 'admin') {
+    if ($_SESSION['user']['role'] === 'admin') {
+        return true;
+    }
+    return false;
+}
+function admin() {
+    if ($_SESSION['user']['role'] !== 'admin') {
         redirect_to('index');
     }
 }

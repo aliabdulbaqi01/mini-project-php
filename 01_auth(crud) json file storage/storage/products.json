@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "product1",
+    "description": "here is my first product",
+    "image": "uploads/product_images/2127022975_2796544_403855-PD499A-808.jpg"
+  },
+  {
+    "id": 2,
+    "title": "product2",
+    "description": "here is my second product",
+    "image": "uploads/product_images/2127022975_2796544_403855-PD499A-808.jpg"
+  }
+]

@@ -77,3 +77,8 @@ function login(array $inputs) :array
 
     return $errors;
 }
+
+function logout() {
+    session_destroy();
+    redirect_to('login');
+}
