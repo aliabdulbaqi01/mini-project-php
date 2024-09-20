@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/../src/bootstrap.php";
+guest();
 $errors = [];
 $method = strtoupper($_SERVER["REQUEST_METHOD"]);
 

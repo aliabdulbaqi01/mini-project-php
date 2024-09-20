@@ -36,6 +36,7 @@ function register(array $inputs) :array {
         'name' => $inputs['name'],
         'email' => $inputs['email'],
         'password' => password_hash($inputs['password'], PASSWORD_DEFAULT),
+        'role' => 'user',
         'created_at' => date('Y-m-d H:i:s',time()),
     ];
 

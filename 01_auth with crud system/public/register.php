@@ -2,7 +2,7 @@
 require_once __DIR__ . "/../src/bootstrap.php";
 $errors = [];
 $method = strtoupper($_SERVER["REQUEST_METHOD"]);
-
+guest();
 if($method === "POST") {
     $inputs = [
             'name' => trim($_POST["name"]),
