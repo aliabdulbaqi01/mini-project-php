@@ -40,6 +40,47 @@ function redirect_to(string $url) {
 }
 
 /*
+ * redirect to a url with data stored in the items array
+ */
+function redirect_with(string $url, array $item) : void
+{
+    foreach ($item as $key => $value) {
+        $_SESSION[$key] = $value;
+    }
+    redirect_to($url);
+}
+
+
+/*
+ * redirect to a URL with a flash message
+ */
+function redirect_with_message(string $url, string $message, string $type = FLASH_SUCCESS) : void
+{
+    flash('flash_'.uniqid(), $message, $type);
+    redirect_to($url);
+}
+
+
+/*
+ * flash data specified by $keys from the $_SESSION
+ */
+function session_flash(...$keys): array
+{
+    $data = [];
+    foreach ($keys as $key) {
+        if (isset($_SESSION[$key])) {
+            $data[] = $_SESSION[$key];
+            unset($_SESSION[$key]);
+        } else {
+            $data[] = [];
+        }
+    }
+    return $data;
+}
+
+
+
+/*
  * get the current url of the page
  * Note: this is not the best way to do that
  * we do it this way because of the main project structure (mini projects)
@@ -49,3 +90,4 @@ function current_url() {
     $url = array_reverse(explode('/', $url, 3));
     return $url[0];
 }
+

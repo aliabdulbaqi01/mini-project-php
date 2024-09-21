@@ -82,3 +82,14 @@ function logout() {
     session_destroy();
     redirect_to('login');
 }
+
+
+/*
+* return the current user data
+*/
+function current_user() {
+    if (isset($_SESSION['user'])) {
+        return $_SESSION['user'];
+    }
+    return null;
+}
