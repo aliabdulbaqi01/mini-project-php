@@ -1,16 +1,1 @@
-[
-  {
-    "name":"user",
-    "email":"user@gmail.com",
-    "password":"$2y$10$QUqx58a0N5wMuHJ0q16.tOmduLcX6xhnIHy77NZG22D\/trjG7kP62",
-    "role": "user",
-    "created_at":"2024-09-20 18:06:36"
-  },
-  {
-    "name":"ali",
-    "email":"ali@gmail.com",
-    "password":"$2y$10$jVn\/TmyocKWt\/RUI4\/RCp.dhNsX\/MqBAwTAPl08s2PQdz84Qf8Gg6",
-    "role": "admin",
-    "created_at":"2024-09-20 18:48:26"
-  }
-]
+[{"name":"user","email":"user@gmail.com","password":"$2y$10$QUqx58a0N5wMuHJ0q16.tOmduLcX6xhnIHy77NZG22D\/trjG7kP62","role":"user","created_at":"2024-09-20 18:06:36"},{"name":"ali","email":"ali@gmail.com","password":"$2y$10$jVn\/TmyocKWt\/RUI4\/RCp.dhNsX\/MqBAwTAPl08s2PQdz84Qf8Gg6","role":"admin","created_at":"2024-09-20 18:48:26"},{"name":"manager","email":"manager@gmail.com","password":"$2y$10$HT1Je6zDSK0yQPpC0.KpxevRChH7iIlj84WWN3fSRRhud\/QLPiHCG","role":"user","created_at":"2024-09-21 11:25:28"}]

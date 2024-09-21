@@ -1,9 +1,12 @@
 <?php
 require_once __DIR__ . "/../src/bootstrap.php";
+
 $errors = [];
 $method = strtoupper($_SERVER["REQUEST_METHOD"]);
 guest();
-if($method === "POST") {
+
+if($method === "POST" && csrf_verify() ) {
+
     $inputs = [
             'name' => trim($_POST["name"]),
             'email' => trim($_POST["email"]),
@@ -16,8 +19,10 @@ if($method === "POST") {
     $_SESSION["errors"] = $errors;
     $_SESSION["inputs"] = $inputs;
 
-} elseif($method === "GET") {
+}
 
+ elseif($method === "GET") {
+    csrf();
     if(isset($_SESSION['errors'])) {
         $errors = $_SESSION['errors'];
         unset($_SESSION['errors']);
@@ -29,6 +34,7 @@ if($method === "POST") {
     }
 }
 
+
 view('header', ['title' => 'Register']);
 ?>
     <div class="container mt-5">
@@ -39,7 +45,8 @@ view('header', ['title' => 'Register']);
                         <h2 class="card-center">Register Form</h2>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="<?=htmlspecialchars(current_url())?>" method="post">
+                            <?= csrf_input() ?>
                             <div class="form-group">
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" id="name" name="name" class="form-control"

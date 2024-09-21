@@ -3,7 +3,8 @@ require_once "../src/bootstrap.php";
 admin();
 
 $method = strtoupper($_SERVER['REQUEST_METHOD']);
-if($method === "POST") {
+if($method === "POST" && csrf_verify()) {
+
     $inputs = [
             'title' => $_POST['title'],
         'description' => $_POST['description'],
@@ -14,6 +15,7 @@ if($method === "POST") {
     $_SESSION['inputs'] = $inputs;
 } elseif($method === "GET")
 {
+    csrf();
     if(isset($_SESSION['errors'])) {
         $errors = $_SESSION['errors'];
         unset($_SESSION['errors']);
@@ -38,6 +40,7 @@ if($method === "POST") {
                     </div>
                     <div class="card-body">
                         <form action="" method="post">
+                            <?= csrf_input() ?>
                             <div class="form-group">
                                 <label for="title" class="form-label">Title</label>
                                 <input type="text" id="title" name="title" class="form-control"

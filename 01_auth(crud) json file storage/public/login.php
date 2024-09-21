@@ -4,7 +4,7 @@ guest();
 $errors = [];
 $method = strtoupper($_SERVER["REQUEST_METHOD"]);
 
-if($method === "POST") {
+if($method === "POST" && csrf_verify()) {
     $inputs = [
         "email" => $_POST["email"],
         'password' => $_POST["password"]
@@ -18,6 +18,7 @@ if($method === "POST") {
 }
 elseif ($method === "GET")
 {
+    csrf();
     if(isset($_SESSION['errors'])) {
         $errors = $_SESSION['errors'];
         unset($_SESSION['errors']);
@@ -39,7 +40,8 @@ view('header', ['title' => 'Login']);
                     <h2 class="card-center">Login Form</h2>
                 </div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="<?= htmlspecialchars(current_url()) ?>" method="post">
+                        <?= csrf_input() ?>
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" name="email" class="form-control"

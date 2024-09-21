@@ -2,7 +2,7 @@
 include_once  __DIR__ . '/../src/bootstrap.php';
 auth();
 view('header', ['title' => 'Home']);
-
+csrf();
 
 ?>
 <?php
@@ -12,7 +12,8 @@ if (is_admin()):
     <?php
 endif;
     ?>
-    <form action="logout.php" >
+    <form action="<?=htmlspecialchars('logout.php') ?>" method="post">
+        <?= csrf_input() ?>
         <button class="btn btn-danger">Logout</button>
     </form>
 

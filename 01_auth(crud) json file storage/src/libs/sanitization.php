@@ -55,9 +55,9 @@ function array_trim(array $items): array
 function sanitize(array $inputs, array $fields = [], int $default_filter = FILTER_UNSAFE_RAW, array $filters = FILTERS, bool $trim = true): array
 {
 
-       foreach ($fields as $field => $value) {
-           $fields[$field] = trim($value);
-       }
+
+    $fields = array_map('trim', $fields);
+
 
     if ($fields) {
         $options = array_map(fn($field) => $filters[$field], $fields);
