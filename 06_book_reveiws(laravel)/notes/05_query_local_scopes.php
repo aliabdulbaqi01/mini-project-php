@@ -22,3 +22,15 @@
  */
 
 
+ // popular
+/*
+ * in Book Model
+ * scopePopular(Builder $query)
+ *  return $query->withCount('reviews')->orderBy('reviews_count', 'desc');
+ */
+
+// highest rated
+/*
+ * scopeHighestRated(Builder $query)
+ *  return $query->withAvg('reviews','rating')->orderBy('reviews_avg_rating', 'desc');
+ */
