@@ -34,3 +34,8 @@
  * scopeHighestRated(Builder $query)
  *  return $query->withAvg('reviews','rating')->orderBy('reviews_avg_rating', 'desc');
  */
+
+// recent reviews
+/*
+ * scopeRec
+ */
