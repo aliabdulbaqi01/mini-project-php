@@ -30,7 +30,7 @@
  *        }
  *
  * in child class (Review
- *      - public function bood() {
+ *      - public function book() {
  *          return $this->belongsTo(Books::class);
  *        }
  */
