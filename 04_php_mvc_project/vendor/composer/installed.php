@@ -3,7 +3,7 @@
         'name' => 'projects/php_mvc',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '14fc16ae672a666a26390a4bd8e5bf20410c1a81',
+        'reference' => 'bb5a75450ba72998fad301408513163d02ea76ed',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'projects/php_mvc' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '14fc16ae672a666a26390a4bd8e5bf20410c1a81',
+            'reference' => 'bb5a75450ba72998fad301408513163d02ea76ed',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

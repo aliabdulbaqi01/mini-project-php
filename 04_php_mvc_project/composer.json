@@ -3,7 +3,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "App",
-            "Projects\\PhpMvc\\": "src/"
+            "PhpMvc\\": "src/"
         }
     },
     "authors": [

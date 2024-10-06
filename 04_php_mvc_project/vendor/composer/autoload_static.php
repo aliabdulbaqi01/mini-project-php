@@ -23,8 +23,8 @@ class ComposerStaticInit522f33ff9108b07dc5cb62953546aa31
         ),
         'P' => 
         array (
-            'Projects\\PhpMvc\\' => 16,
             'PhpOption\\' => 10,
+            'PhpMvc\\' => 7,
         ),
         'G' => 
         array (
@@ -33,6 +33,10 @@ class ComposerStaticInit522f33ff9108b07dc5cb62953546aa31
         'D' => 
         array (
             'Dotenv\\' => 7,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -53,13 +57,13 @@ class ComposerStaticInit522f33ff9108b07dc5cb62953546aa31
         array (
             0 => __DIR__ . '/..' . '/symfony/var-dumper',
         ),
-        'Projects\\PhpMvc\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'PhpMvc\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'GrahamCampbell\\ResultType\\' => 
         array (
@@ -68,6 +72,10 @@ class ComposerStaticInit522f33ff9108b07dc5cb62953546aa31
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/App',
         ),
     );
 
